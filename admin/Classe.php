@@ -41,14 +41,6 @@ require_once('../connexion.php');
 	<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
 </head>
 
-<style>
-
-.Class{
-	position: relative;
-	
-}
-
-</style>
 
 
 
@@ -57,10 +49,8 @@ require_once('../connexion.php');
 <body
 	
 
-										<div class="Class">
 										
-									<div
-											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
 											<input class="mdl-textfield__input" type="text" id="classe" value="" readonly
 												tabIndex="-1" required >
 											<label for="classe" class="pull-right margin-0">
@@ -72,8 +62,6 @@ require_once('../connexion.php');
 
 									<?php
 
-										//$NOM_VILLE = $_POST["NOM_VILLE"];
-											//$ID_VILLE = $_POST["ID_VILLE"];
 										
 										$select_classe = $connexion->query("SELECT * FROM classe WHERE ID_ETABLISS = $_GET[id_Etab] ");
 												while(	$fet_classe = $select_classe->fetch()):
@@ -85,26 +73,9 @@ require_once('../connexion.php');
 										<?php endwhile; ?>
 										</ul>
 									</div>
-									</div>
-
-
-
-
 								
 										
-		<!-- end page container -->
-		<!-- start footer -->
-<!--		<div class="page-footer">
-			<div class="page-footer-inner"> 2017 &copy; Smart University Theme By
-				<a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstar Theme</a>
-			</div>
-			<div class="scroll-to-top">
-				<i class="icon-arrow-up"></i>
-			</div>
-		</div>-->
-		<!-- end footer -->
-	</div>
-	<!-- start js include path -->
+		<!-- start js include path -->
 	<script src="../assets/plugins/jquery/jquery.min.js"></script>
 	<script src="../assets/plugins/popper/popper.js"></script>
 	<script src="../assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
