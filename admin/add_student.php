@@ -26,20 +26,20 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 //var_dump( $nom,$prenom,$genre,$datenaiss,$cnib,$datevalid,$email,$numero,$nomparent,$numeroparent);
 
 
-	$req = $connexion->prepare("INSERT INTO eleve(Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?)");
+	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS,Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-   $req=$req->execute([$nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
-   if ($req==True){
-       $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
-       $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
-       $lastIde = $connexion->query("SELECT NOM_ETABLISS,NOW() as dates FROM `etablissement` ORDER BY NOM_ETABLISS ")->fetch();
-       $lastIdc = $connexion->query("SELECT NOM_CLASS,NOW() as dates FROM `classe`")->fetch();
-       //       var_dump($lastId,$_GET["id_Class"]);
-//       die();
-		$req1 = $connexion->prepare("INSERT INTO postulation(ID_eleve,ID_CLASS,Nom,Prenom,Genre,Ville,Etablissement,Classe,CNIB,JOUR_POST) VALUES (?,?,?,?,?,?,?,?,?,?)");
-		$req1=$req1->execute([$lastId["ID_eleve"],$_GET["id_Class"],$nom,$prenom,$genre,$lastIdv["NOM_VILLE"],$lastIde["NOM_ETABLISS"],$lastIdc["NOM_CLASS"],$cnib,$lastId["dates"]]);
+   $req=$req->execute([$_GET["id_Class"],$nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
+//    if ($req==True){
+//        $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
+//        $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
+//        $lastIde = $connexion->query("SELECT NOM_ETABLISS,NOW() as dates FROM `etablissement` ORDER BY NOM_ETABLISS ")->fetch();
+//        $lastIdc = $connexion->query("SELECT NOM_CLASS,NOW() as dates FROM `classe`")->fetch();
+//        //       var_dump($lastId,$_GET["id_Class"]);
+// //       die();
+// 		$req1 = $connexion->prepare("INSERT INTO postulation(ID_eleve,ID_CLASS,Nom,Prenom,Genre,Ville,Etablissement,Classe,CNIB,JOUR_POST) VALUES (?,?,?,?,?,?,?,?,?,?)");
+// 		$req1=$req1->execute([$lastId["ID_eleve"],$_GET["id_Class"],$nom,$prenom,$genre,$lastIdv["NOM_VILLE"],$lastIde["NOM_ETABLISS"],$lastIdc["NOM_CLASS"],$cnib,$lastId["dates"]]);
 
-   }
+//    }
 
 	}
 

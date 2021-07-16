@@ -41,6 +41,11 @@ require_once('../connexion.php');
 	<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
 </head>
 
+<style>
+
+
+
+</style>
 
 
 
@@ -49,15 +54,19 @@ require_once('../connexion.php');
 <body
 	
 
-										
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="classe" value="" readonly
+									<div class="villes">
+
+									<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+											<input class="mdl-textfield__input" type="text" id="ville" value="" readonly
 												tabIndex="-1" required >
-											<label for="classe" class="pull-right margin-0">
+											<label for="ville" class="pull-right margin-0">
 												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
 											</label>
-											<label for="classe" class="mdl-textfield__label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Selectionner votre classe </b></label>
-											<ul data-mdl-for="classe" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+											
+											<label for="ville" class="mdl-textfield__label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Selectionner votre classe </b></label>
+											<ul data-mdl-for="ville" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+
 
 
 									<?php
