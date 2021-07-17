@@ -332,5 +332,4 @@ $req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 </body>
 
 
-<!-- Mirrored from radixtouch.in/templates/admin/smart/source/light/all_students.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 May 2021 21:32:17 GMT -->
 </html>

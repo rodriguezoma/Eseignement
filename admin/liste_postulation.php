@@ -39,7 +39,7 @@
 
 <!-- END HEAD -->
 
-<body
+<body>
 
 
 <!-- end footer -->

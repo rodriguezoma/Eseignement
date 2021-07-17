@@ -51,7 +51,7 @@ require_once('../connexion.php');
 
 <!-- END HEAD -->
 
-<body
+<body>
 	
 
 										<div class="Etabliss">

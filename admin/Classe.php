@@ -5,9 +5,6 @@ require_once('../connexion.php');
 
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
@@ -51,7 +48,7 @@ require_once('../connexion.php');
 
 <!-- END HEAD -->
 
-<body
+<body>
 	
 
 									<div class="villes">

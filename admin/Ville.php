@@ -48,9 +48,8 @@ require_once('../connexion.php');
 
 <!-- END HEAD -->
 
-<body
+<body>
 	
-
 									<div class="villes">
 
 									<div
@@ -86,19 +85,6 @@ require_once('../connexion.php');
 									</div>
 
 
-								
-										
-		<!-- end page container -->
-		<!-- start footer -->
-<!--		<div class="page-footer">
-			<div class="page-footer-inner"> 2017 &copy; Smart University Theme By
-				<a href="wrodriguezoma@gmail.com" target="_top" class="makerCss">Redstar Theme</a>
-			</div>
-			<div class="scroll-to-top">
-				<i class="icon-arrow-up"></i>
-			</div>
-		</div>-->
-		<!-- end footer -->
 	</div>
 	<!-- start js include path -->
 	<script src="../assets/plugins/jquery/jquery.min.js"></script>

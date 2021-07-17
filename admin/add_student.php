@@ -28,7 +28,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 
 	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS,Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-   $req=$req->execute([$_GET["id_Class"],$nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
+   $req=$req->execute([$_GET["id_Class"], $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
 //    if ($req==True){
 //        $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
 //        $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
@@ -60,7 +60,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" >
 <!-- BEGIN HEAD -->
 
 
@@ -141,15 +141,8 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
                             </ul>
                         </li>
 						<!-- end language menu -->
-						<!-- start notification dropdown -->
+						
 
-						<!-- end notification dropdown -->
-						<!-- start message dropdown -->
-
-						<!-- end message dropdown -->
-						<!-- start manage user dropdown -->
-
-						<!-- end manage user dropdown -->
 						<li class="dropdown dropdown-quick-sidebar-toggler">
 							<!--<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
 								data-upgraded=",MaterialButton">
@@ -161,9 +154,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 			</div>
 		</div>
 		<!-- end header -->
-		<!-- start color quick setting -->
 
-		<!-- end color quick setting -->
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
