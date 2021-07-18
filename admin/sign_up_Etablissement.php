@@ -4,29 +4,32 @@ require_once('../connexion.php');
 
 if(isset($_POST["Valider"])){
 
-if( isset($_POST["username"] ) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["pass2"]) ){
+if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["cnib"]) && isset($_POST["pass"]) && isset($_POST["pass2"]) ){
 
-	if ( !empty($_POST["username"]) &&  !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"]) ){
+	if ( !empty($_POST["identifiant"]) &&  !empty($_POST["email"]) && !empty($_POST["phone"]) &&  !empty($_POST["cnib"]) && !empty($_POST["pass"]) && !empty($_POST["pass2"]) ){
 
-	$username = $_POST["username"];
+	$identifiant = $_POST["identifiant"];
 	$email = $_POST["email"];
+	$phone = $_POST["phone"];
+	$cnib = $_POST["cnib"];
 	$password = md5($_POST["pass"]);
 
-	$select = $connexion->prepare("SELECT email FROM utilisateur WHERE email=?");
-		$select->execute([$email]);
-		$count = $select->rowCount(); 
+	$select = $connexion->prepare("SELECT Identifiant FROM user_etabliss WHERE Identifiant=?");
+		$select->execute([$identifiant]);
+		$count = $select->rowCount();
 
 	if($count>0){
 
-	$email1=("Desolez, votre email exist deja!");
+		$identifiant1=("Desolez, votre identifiant exist deja!");
 
 	}else{
 
 	if($password==md5($_POST["pass2"])){
 
-	$req = $connexion->prepare("INSERT INTO utilisateur(Nom_dutilisateur, email, Password)  VALUES (?,?,?)");
+	$req = $connexion->prepare("INSERT INTO user_etabliss(Identifiant, Email, Numero, CNIB, Passwords)  VALUES (?,?,?,?,?)");
 	
-	$req->execute([$username,$email,$password]);
+	$req->execute([$identifiant,$email,$phone,$cnib,$password]);
+	var_dump($req->fetch());
 	}else {
 	$Password1 =  ("Desoler, mot de passe non identique!");
 }
@@ -36,10 +39,6 @@ if( isset($_POST["username"] ) && isset($_POST["email"]) && isset($_POST["pass"]
 }
 
 ?>
-
-
-
-
 
 
 
@@ -78,31 +77,48 @@ if( isset($_POST["username"] ) && isset($_POST["email"]) && isset($_POST["pass"]
 						<img alt="" src="../assets/img/logo-2.png">
 					</span>
 					<span class="login100-form-title p-b-34 p-t-27">
-						Creation de Compte
+						Creation de Compte d'etablissement
 					</span>
 					<div class="row">
 						<div class="col-lg-6 p-t-20">
-							<div class="wrap-input100 validate-input" data-validate="Entre Nom d'itulisateur">
-								<input class="input100" type="text" name="username" placeholder="Nom d'itulisateur">
+							<div class="wrap-input100 validate-input" data-validate="Entre votre identifiant">
+								<input class="input100" type="text" name="identifiant" placeholder="Identifiant de l'établissement">
 								<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							</div>
+							<div class="text-danger">
+									<?php
+																		
+										if(isset($identifiant1)){
+											echo $identifiant1;
+										}
+									?>
+
+								</div>
+
 						</div>
+
 						<div class="col-lg-6 p-t-20">
 							<div class="wrap-input100 validate-input" data-validate="Entre email">
 								<input class="input100" type="email" name="email" placeholder="Email">
 								<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							</div>
 
-								<div class="text-danger">
-									<?php
-																		
-										if(isset($email1)){
-											echo $email1;
-										}
-									?>
+						</div>
 
+						<div class="col-lg-6 p-t-20">
+							<div class="wrap-input100 validate-input" data-validate="Entre numéro de téléphone">
+								<input class="input100" type="text" name="phone" placeholder="Numéro de téléphone">
+								<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							</div>
+						</div>
+						<div class="col-lg-6 p-t-20">
+							<div class="wrap-input100 validate-input" data-validate="Entre votre code CNIB/Passport">
+								<input class="input100" type="text" name="cnib" placeholder="CNIB/Passport">
+								<span class="focus-input100" data-placeholder="&#xf207;"></span>
+							</div>
 						</div>
 						</div>
+						
 						<div class="col-lg-6 p-t-20">
 							<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">
 								<input class="input100" type="password" name="pass" placeholder="mot de passe">
@@ -125,6 +141,8 @@ if( isset($_POST["username"] ) && isset($_POST["email"]) && isset($_POST["pass"]
 							</div>
 						</div>
 					</div>
+
+
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="Se  rappeller de moi">
 						<label class="label-checkbox100" for="ckb1">
