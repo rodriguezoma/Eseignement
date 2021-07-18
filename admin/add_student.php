@@ -3,14 +3,11 @@
 require_once('../connexion.php');
 
 	?>
-
-
 <?php
 if(isset($_POST["Valider"])){
 
 if( isset($_POST["Nom"] ) and isset($_POST["Prenom"]) and isset($_POST["Genre"]) and isset($_POST["Datenaiss"]) and
 isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"]) and isset($_POST["Numero"]) and isset($_POST["Nomparent"]) and isset($_POST["Numeroparent"]) ){
-
 
 									 $nom = $_POST["Nom"];
 									$prenom = $_POST["Prenom"];
@@ -291,10 +288,8 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
 											<input class="mdl-textfield__input" type="date" name="Datevalid" id="Datevalid" placeholder="mm/dd/yyyy" >
 											<label class="mdl-textfield__label" for="text5">Date de validite</label>
-											<!--<span class="mdl-textfield__error">Date obligatoire!</span>-->
 										</div>
 									</div>
-
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -308,19 +303,13 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 													class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
 											<input class="mdl-textfield__input" type="text" name="Numero" id="Numero"  >
 											<label class="mdl-textfield__label" for="text5">Numero de telephone</label>
-											<!--<span class="mdl-textfield__error">Numero obligatoire!</span>-->
 										</div>
 									</div>
-
-
-
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
 											<input class="mdl-textfield__input" type="text" name="Nomparent" id="Nomparent"  >
 											<label class="mdl-textfield__label">Nom et Prenom d'un Parents</label>
-													<!--<span class="mdl-textfield__error">Nom de parent obligatoire!</span>-->
-
 										</div>
 									</div>
 

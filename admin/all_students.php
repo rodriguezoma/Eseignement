@@ -163,20 +163,13 @@ $req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 										<a href="add_student.php" class="nav-link "> <span class="title">Ajoute élève</span>
 										</a>
 									</li>
-									<!--<li class="nav-item">
-										<a href="add_student_bootstrap.html" class="nav-link "> <span class="title">Add
-												Student Bootstrap</span>
-										</a>
+
 									</li>-->
 									<li class="nav-item">
 										<a href="edit_student.html" class="nav-link "> <span class="title">Editer</span>
 										</a>
 									</li>
-									<!--<li class="nav-item">
-										<a href="student_profile.html" class="nav-link "> <span class="title">About
-												Student</span>
-										</a>
-									</li>-->
+
 								</ul>
 							</li>
 							
@@ -208,11 +201,6 @@ $req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 						<div class="col-md-12">
 							<div class="tabbable-line">
 								<ul class="nav customtab nav-tabs" role="tablist">
-									<!--<li class="nav-item"><a href="#tab1" class="nav-link active"
-											data-bs-toggle="tab">List
-											View</a></li>
-									<li class="nav-item"><a href="#tab2" class="nav-link" data-bs-toggle="tab">Grid
-											View</a></li>-->
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active fontawesome-demo" id="tab1">
@@ -267,7 +255,8 @@ $req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 														</div>
                                                         <div class="table-scrollable">
 															<table
-																class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+																class="table table-striped table-bordered table-hover
+																table-checkable order-column valign-middle"
 																id="example4">
 																<thead>
 																	<tr>
