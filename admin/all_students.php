@@ -257,7 +257,7 @@ $classe = $_POST['Classe'];
 															<table
 																class="table table-striped table-bordered table-hover
 																table-checkable order-column valign-middle"
-																id="example4">
+																id="example1">
 																<thead>
 																	<tr>
 																		
@@ -353,6 +353,9 @@ $classe = $_POST['Classe'];
 	<script src="../assets/plugins/material/material.min.js"></script>
 	<!-- end js include path -->
 </body>
+
+
+
 
 
 </html>
