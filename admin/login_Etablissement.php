@@ -4,24 +4,23 @@ require_once('../connexion.php');
 
 if(isset($_POST["Connect"])){
 
-if(isset($_POST["email"]) && isset($_POST["Password"]) ){
+if(isset($_POST["identifiant"]) && isset($_POST["Password"]) ){
 
-	$email = $_POST["email"];
+	$identifiant = $_POST["identifiant"];
 	$password = $_POST["Password"];
 
 
-	$select = $connexion->prepare("SELECT email, Password FROM utilisateur WHERE email=?  AND  Password=?");
-	$select->execute([$email, md5($password)]);
+	$select = $connexion->prepare("SELECT Identifiant, Password FROM user_etabliss WHERE Identifiant=?  AND  Password=?");
+	$select->execute([$identifiant, md5($password)]);
 			$fet = $select->fetch();
 		$count = $select->rowCount();
 
 	if($count>=1){
-	echo ("okay");
 	header('Location: ../enseignement/index.php');
 
 	}else{
 
-		$conect= ("Desolez, email ou Password incorrect!");
+		$conect= ("Desolez, Identifiant ou Password incorrect!");
 
 }
 	}
@@ -64,7 +63,7 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="">
 					<span class="login100-form-logo">
-						<img alt="" src="../assets/img/logo-2.png">
+						<img alt="" src="../assets/img/faso-education.png">
 					</span>
 					<span class="login100-form-title p-b-34 p-t-27">
 						Se Connecter
@@ -76,11 +75,11 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 										if(isset($conect)){
 											echo $conect;
 										}
-										?>
+									?>
 						</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Entre email">
-						<input class="input100" type="text" name="email" placeholder="email">
+					<div class="wrap-input100 validate-input" data-validate="Entre l'identifiant">
+						<input class="input100" type="text" name="identifiant" placeholder="Identifiant d'etablissement">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">

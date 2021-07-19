@@ -12,7 +12,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 	$email = $_POST["email"];
 	$phone = $_POST["phone"];
 	$cnib = $_POST["cnib"];
-	$password = md5($_POST["pass"]);
+	$password =md5($_POST["pass"]);
 
 	$select = $connexion->prepare("SELECT Identifiant FROM user_etabliss WHERE Identifiant=?");
 		$select->execute([$identifiant]);
@@ -28,8 +28,9 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 
 	$req = $connexion->prepare("INSERT INTO user_etabliss(Identifiant, Email, Numero, CNIB, Passwords)  VALUES (?,?,?,?,?)");
 	
-	$req->execute([$identifiant,$email,$phone,$cnib,$password]);
-	var_dump($req->fetch());
+	$req1= $req->execute([$identifiant,$email,$phone,$cnib,$password]);
+	
+	var_dump($req1);
 	}else {
 	$Password1 =  ("Desoler, mot de passe non identique!");
 }
@@ -74,7 +75,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 			<div class="wrap-login100">
 				<form class="login100-form validate-form"  method = "POST"  action = "">
 					<span class="login100-form-logo">
-						<img alt="" src="../assets/img/logo-2.png">
+						<img alt="" src="../assets/img/faso-education.png">
 					</span>
 					<span class="login100-form-title p-b-34 p-t-27">
 						Creation de Compte d'etablissement
@@ -106,17 +107,19 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 						</div>
 
 						<div class="col-lg-6 p-t-20">
-							<div class="wrap-input100 validate-input" data-validate="Entre numéro de téléphone">
+						<div class="wrap-input100 validate-input" data-validate="Entre numéro de téléphone">
 								<input class="input100" type="text" name="phone" placeholder="Numéro de téléphone">
 								<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							</div>
+
 						</div>
+
 						<div class="col-lg-6 p-t-20">
-							<div class="wrap-input100 validate-input" data-validate="Entre votre code CNIB/Passport">
+						<div class="wrap-input100 validate-input" data-validate="Entre votre code CNIB/Passport">
 								<input class="input100" type="text" name="cnib" placeholder="CNIB/Passport">
 								<span class="focus-input100" data-placeholder="&#xf207;"></span>
 							</div>
-						</div>
+
 						</div>
 						
 						<div class="col-lg-6 p-t-20">
@@ -125,6 +128,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 								<span class="focus-input100" data-placeholder="&#xf191;"></span>
 							</div>
 						</div>
+						
 						<div class="col-lg-6 p-t-20">
 							<div class="wrap-input100 validate-input" data-validate="Confirmer mot de passe">
 								<input class="input100" type="password" name="pass2" placeholder="Confirmer mot de passe">
@@ -155,7 +159,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 						</button>
 					</div>
 					<div class="text-center p-t-30">
-						<a class="txt1" href="login.php">
+						<a class="txt1" href="login_Etablissement.php">
 							Tu as deja un compte?
 						</a>
 					</div>

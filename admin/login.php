@@ -64,7 +64,7 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="">
 					<span class="login100-form-logo">
-						<img alt="" src="../assets/img/logo-2.png">
+						<img alt="" src="../assets/img/faso-education.png">
 					</span>
 					<span class="login100-form-title p-b-34 p-t-27">
 						Se Connecter

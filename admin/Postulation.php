@@ -44,7 +44,7 @@
 
 <!-- END HEAD -->
 
-<body
+<body>
 	
 
 									<div class="villes">

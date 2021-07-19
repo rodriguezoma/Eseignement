@@ -1,3 +1,36 @@
+
+<?php
+require_once('../connexion.php');
+
+if(isset($_POST["Connect"])){
+
+if(isset($_POST["phonecnib"]) && isset($_POST["Password"]) ){
+
+	$phonecnib = $_POST["phonecnib"];
+	$password = $_POST["Password"];
+
+
+	$select = $connexion->prepare("SELECT Numero, Password FROM user_etabliss WHERE Numero=? AND  Password=?");
+	$select->execute([$phonecnib, md5($password)]);
+			$fet = $select->fetch();
+		$count = $select->rowCount();
+
+	if($count>=1){
+	header('Location: ../enseignement/index.php');
+
+	}else{
+
+		$conect= ("Desolez, les informations sont incorrect!");
+
+}
+	}
+	}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -37,9 +70,9 @@
 					<p class="text-center txt-small-heading">
 						Mot de passe oublier? Laissez-nous vous aider.
 					</p>
-					<div class="wrap-input100 validate-input" data-validate="Entre ton mail">
-						<input class="input100" type="text" name="Nom d'itulisateur"
-							placeholder="Entre ton email">
+					<div class="wrap-input100 validate-input" data-validate="Entre votre numero ou CNIB">
+						<input class="input100" type="text" name="phonecnib"
+							placeholder="Entre votre numero / CNIB">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="container-login100-form-btn">

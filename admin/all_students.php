@@ -14,14 +14,14 @@ if( isset($_POST["Nom"] ) and isset($_POST["Prenom"]) and isset($_POST["Genre"])
 $nom = $_POST["Nom"];
 $prenom = $_POST["Prenom"];
 $genre = $_POST["Genre"];
-$ville = $_POST["Ville"];
-$etablissement = $_POST["Etablissement"];
-$classe = $_POST["Classe"];
+$ville = $_POST['Ville'];
+$etablissement = $_POST['Etablissement'];
+$classe = $_POST['Classe'];
 
 
 
-$req1=$connexion->query("SELECT Nom,Prenom,Genre,Ville,Etablissement,Classe FROM `postulation` ORDER BY Nom DESC LIMIT 1 ")->fetch();
-$req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
+// $req1=$connexion->query("SELECT Nom,Prenom,Genre,Ville,Etablissement,Classe FROM postulation p, ville v, etablissement e, 'classe c' where p.ID_CLASS = c.ID_CLASS AND D_ETABLISS = e.ID_ETABLISS AND e.ID_VILLE = v.ID_VILLE ")->fetch();
+// $req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 
 //SELECT ("Nom","Prenom","Genre","Ville","Etablissement","Classe") FROM "postulation";
 }
@@ -260,14 +260,33 @@ $req1=$req1->execute([$nom, $prenom, $genre, $ville,$etablissement,$classe]);
 																id="example4">
 																<thead>
 																	<tr>
-																		<th></th>
+																		
 																		<th> Nom </th>
 																		<th> Prenom </th>
 																		<th> Genre </th>
+																		<th> Ville </th>
 																		<th> Etablissement </th>
 																		<th>Classe</th>
 																	</tr>
 																</thead>
+																<tbody>
+															<?php
+							$req1= "SELECT Nom, Prenom, genre, NOM_VILLE, NOM_ETABLISS, NOM_CLASS FROM postulation , ville , etablissement , classe  where postulation.ID_CLASS = classe.ID_CLASS AND classe.ID_ETABLISS = etablissement.ID_ETABLISS AND etablissement.ID_VILLE = ville.ID_VILLE ";
+							$reqstet=$connexion->query($req1);
+						
+															
+															?>
+															<?php while( $row = $reqstet->fetch()): ?>	
+																<tr>
+																<td ><?php echo htmlspecialchars($row['Nom']); ?></td>
+																<td ><?php echo htmlspecialchars ($row['Prenom']);?></td>
+																<td ><?php echo htmlspecialchars ($row['genre']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_VILLE']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_ETABLISS']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_CLASS']);?></td>
+																</tr>
+															<?php endwhile;?>
+																</tbody>
 															
 															</table>
 														</div>

@@ -19,13 +19,35 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 									$numero = $_POST["Numero"];
 									$nomparent = $_POST["Nomparent"];
 									$numeroparent = $_POST["Numeroparent"];
+									//Recuperer ID 
+									$id_class = $_GET["id_Class"];
+									//Requete de la classe
+
 
 //var_dump( $nom,$prenom,$genre,$datenaiss,$cnib,$datevalid,$email,$numero,$nomparent,$numeroparent);
 
 
-	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS,Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS, Nom, Prenom, Date_de_naissance, genre, CNIB, Date_validite, email, telephone, Parent, Phone, JOUR_POST) 
+	VALUES ('$id_class' , '$nom', '$prenom', '$datenaiss', '$genre', '$cnib', '$datevalid', '$email', '$numero', '$nomparent', '$numeroparent',NOW())");
+	$req->execute();
+    // var_dump(
+	// 	$nom.' && '.
+	// 	$prenom.' && '.
+	// 	 $genre .' && '.
+	// 	 $datenaiss.' && '.
+	// 	$cnib.' && '.
+	// 	$datevalid.' && '.
+	// 	$email.' && '.
+	// 	$numero.' && '.
+	// 	$nomparent.' && '.
+	// 	$numeroparent.' && '.
+	// 	//Recuperer ID 
+	// 	$id_class
+	// );
+	//$req1 =$req->execute([$id_class , $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent,NOW()]);
 
-   $req=$req->execute([$_GET["id_Class"], $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
+	// var_dump($req1);
+	// die();
 //    if ($req==True){
 //        $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
 //        $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
