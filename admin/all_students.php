@@ -159,17 +159,6 @@ $classe = $_POST['Classe'];
 											<span class="selected"></span>
 										</a>
 									</li>
-									<!-- <li class="nav-item">
-										<a href="add_student.php" class="nav-link "> <span class="title">Ajoute élève</span>
-										</a>
-									</li>
-
-									</li>
-									<li class="nav-item">
-										<a href="edit_student.html" class="nav-link "> <span class="title">Editer</span>
-										</a>
-									</li> -->
-
 								</ul>
 							</li>
 							
@@ -254,13 +243,13 @@ $classe = $_POST['Classe'];
 															</div>
 														</div>
                                                         <div class="table-scrollable">
-															<table
+														<table
 																class="table table-striped table-bordered table-hover
 																table-checkable order-column valign-middle"
 																id="example1">
 																<thead>
 																	<tr>
-																		
+																									
 																		<th> Nom </th>
 																		<th> Prenom </th>
 																		<th> Genre </th>

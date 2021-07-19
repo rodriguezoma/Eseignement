@@ -1,3 +1,64 @@
+
+<?php
+require_once('../connexion.php');
+
+	?>
+<?php
+if(isset($_POST["Valider"])){
+var_dump($_POST['Valider']);
+	//isset($_POST["nom"] ) and isset($_POST["classe"]) and
+
+if(isset($_POST["transe"]) and isset($_POST["moyen"]) and isset($_POST["montant"] ) and isset($_POST["numero"]) and isset($_POST["reference"]) and isset($_POST["details"]) ){
+	
+
+									 $nom = $_GET["nom"];
+									 $transe = $_POST["transe"];
+									 $moyen = $_POST["moyen"];
+									$montant = $_POST["montant"];
+									$referense = $_POST["reference"];
+									$details = $_POST["details"];
+									$numero = $_POST["Numero"];
+									//Recuperer ID 
+									$class = $_GET["class"];
+									//Requete de la classe
+
+
+
+
+	var_dump(
+
+		$nom,
+		$transe,
+		$moyen,
+	   $montant,
+	   $referense,
+	   $details,
+	   $numero,
+	   //Recuperer ID 
+	   $class
+	   //Requete de la classe
+
+);
+	$req1 = $connexion->prepare("INSERT INTO paiement(Nom_eleve, Classe, Transe, Moyen, Montant, Numero, Code, Statusp, Details, Datep) 
+	VALUES ('Adam', '5eme' , '$trase', '$moyen', '$montant', '$numero' '$reference', '$details',NOW())");
+	$req1->execute();
+var_dump($req1);
+	}
+
+    		//echo "Valider";
+}
+
+
+		if (isset($_POST["Cancel"])) {
+		    exit(header('Location: ../enseignement/index.php'));
+
+	# code...
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
@@ -45,23 +106,14 @@
 				<!-- logo start -->
 				<div class="page-logo">
 					<a href="index.php">
-						<span> <img src="../assets/img/Fasologo20.png" alt="" height="50px" width="65px"></span>
+					<span class="logo-icon material-icons fa-rotate-45">school</span>
 						<span class="logo-default">FasoEnseignement</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
 					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
 				</ul>
-				<form class="search-form-opened" action="#" method="GET">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Recherche..." name="query">
-						<span class="input-group-btn">
-							<a href="javascript:;" class="btn submit">
-								<i class="icon-magnifier"></i>
-							</a>
-						</span>
-					</div>
-				</form>
+	
 				<!-- start mobile menu -->
 				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
 					<span></span>
@@ -89,29 +141,16 @@
                             </ul>
                         </li>
 						<!-- end language menu -->
-						<!-- start notification dropdown -->
-
-						<!-- end notification dropdown -->
-						<!-- start message dropdown -->
-
-						<!-- end message dropdown -->
-						<!-- start manage user dropdown -->
-
-						<!-- end manage user dropdown -->
+					
 						<li class="dropdown dropdown-quick-sidebar-toggler">
-							<!--<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-								data-upgraded=",MaterialButton">
-								<i class="material-icons">more_vert</i>
-							</a>-->
+						
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<!-- end header -->
-		<!-- start color quick setting -->
 
-		<!-- end color quick setting -->
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
@@ -145,20 +184,16 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item">
-                                        <a href="fees_collection.php" class="nav-link "> <span class="title">Etat de payement</span>
+                                        <a href="fees_collection.php" class="nav-link "> <span class="title">Etat de paiement</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="add_fees.php" class="nav-link "> <span class="title">Paiement de la scolarité </span>
                                         </a>
                                     </li>
-                            <!--<li class="nav-item">
-                                <a href="add_fees_bootstrap.html" class="nav-link "> <span class="title">Add
-                                        Fees Bootstrap</span>
-                                </a>
-                            </li>-->
+                         
                             <li class="nav-item">
-                                <a href="fees_receipt.php" class="nav-link "> <span class="title">Reçu de payement</span>
+                                <a href="fees_receipt.php" class="nav-link "> <span class="title">Reçu de paiement</span>
                                 </a>
                             </li>
                         </ul>
@@ -184,7 +219,7 @@
 								</li>
 								<li><a class="parent-item" href="#">Scolarité</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
-								<li class="active">Payement de la scolarite</li>
+								<li class="active">Paiement de la scolarite</li>
 							</ol>
 						</div>
 					</div>
@@ -193,117 +228,85 @@
 							<div class="card-box">
 
 								<div class="card-body row">
+								
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="txtroll">
-											<label class="mdl-textfield__label">N</label>
-										</div>
-									</div>
-									<div class="col-lg-6 p-t-20">
-										<div
-											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="txtname">
+											<input class="mdl-textfield__input" type="text" id="nom">
 											<label class="mdl-textfield__label">Nom de l'élève</label>
 										</div>
 									</div>
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="list2" value="" readonly
-												tabIndex="-1">
-											<label for="list2" class="pull-right margin-0">
-												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-											</label>
-											<label for="list2" class="mdl-textfield__label">Classe</label>
-											<ul data-mdl-for="list2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-												<li class="mdl-menu__item" data-val="DE">6ème</li>
-												<li class="mdl-menu__item" data-val="BY">5ème</li>
-												<li class="mdl-menu__item" data-val="BY">4ème</li>
-												<li class="mdl-menu__item" data-val="BY">3ème</li>
- 												<li class="mdl-menu__item" data-val="OT">2nd A </li>
- 												<li class="mdl-menu__item" data-val="OT">2nd C </li>
-                                                <li class="mdl-menu__item" data-val="BY">1ère A </li>
-                                                <li class="mdl-menu__item" data-val="BY">1ère D </li>
-												<li class="mdl-menu__item" data-val="OT">Tle A </li>
-												<li class="mdl-menu__item" data-val="OT">Tle D </li>
-											</ul>
+											<input class="mdl-textfield__input" type="text" id="classe">
+											<label class="mdl-textfield__label">Classe</label>
 										</div>
 									</div>
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="list5" value="" readonly
-												tabIndex="-1">
-											<label class="pull-right margin-0">
-												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-											</label>
-											<label class="mdl-textfield__label">Transe de la scolarité</label>
-											<ul data-mdl-for="list5" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-												<li class="mdl-menu__item" data-val="DE">1er</li>
-												<li class="mdl-menu__item" data-val="BY">2ème</li>
-												<li class="mdl-menu__item" data-val="BY">3ème</li>
-										    	<li class="mdl-menu__item" data-val="OT">Autre</li>
-											</ul>
+											<select class="mdl-textfield__input class="pull-right margin-0 class="mdl-icon-toggle__label material-icons class="mdl-textfield__label data-mdl-for="transe" name="transe" >
+                                                <option class="mdl-menu__item"  disabled selected>Transe de la scolarité</option>
+                                                <option class="mdl-menu__item" value="M">1er</option>
+												<option class="mdl-menu__item" value="F">2ème</option>
+												<option class="mdl-menu__item" value="M">3ème</option>
+												<option class="mdl-menu__item" value="F">Autre</option>
+											</select>
+								
+										</div>
+									</div>
+
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+											<select class="mdl-textfield__input class="pull-right margin-0 class="mdl-icon-toggle__label material-icons class="mdl-textfield__label data-mdl-for="moyen" name="moyen" >
+                                                <option class="mdl-menu__item"  disabled selected>moyen de paiement</option>
+                                                <option class="mdl-menu__item" value="M">Cash</option>
+												<option class="mdl-menu__item" value="F">Orange Money</option>
+												<option class="mdl-menu__item" value="M">Mobilecash</option>
+											</select>
+								
+										</div>
+									</div>
+
+									
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" id="montant">
+											<label class="mdl-textfield__label">Montant versé</label>
 										</div>
 									</div>
 
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="date">
-											<label class="mdl-textfield__label">Date de payement</label>
+											<input class="mdl-textfield__input" type="text" id="numero">
+											<label class="mdl-textfield__label">Numero de paiement</label>
 										</div>
 									</div>
-									<div class="col-lg-6 p-t-20">
-										<div
-											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="list9" value="" readonly
-												tabIndex="-1">
-											<label for="list9" class="pull-right margin-0">
-												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-											</label>
-											<label for="list9" class="mdl-textfield__label">Type de payement</label>
-											<ul data-mdl-for="list9" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-												<li class="mdl-menu__item" data-val="DE">Cash</li>
-												<li class="mdl-menu__item" data-val="BY">Orange Money</li>
-												<li class="mdl-menu__item" data-val="BY">Mobilecash</li>
-											</ul>
-										</div>
-									</div>
+
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="paymentReference">
+											<input class="mdl-textfield__input" type="text" id="reference">
 											<label class="mdl-textfield__label">Code de validité</label>
 										</div>
 									</div>
+									
 									<div class="col-lg-6 p-t-20">
-										<div
-											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="list8" value="" readonly
-												tabIndex="-1">
-											<label for="list2" class="pull-right margin-0">
-												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-											</label>
-											<label for="list2" class="mdl-textfield__label">Status</label>
-											<ul data-mdl-for="list8" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-												<li class="mdl-menu__item" data-val="DE">Payé</li>
-												<li class="mdl-menu__item" data-val="BY">Impayé</li>
-												<li class="mdl-menu__item" data-val="BY">En cours</li>
-											</ul>
-										</div>
-									</div>
+										
 									<div class="col-lg-12 p-t-20">
 										<div class="mdl-textfield mdl-js-textfield txt-full-width">
-											<textarea class="mdl-textfield__input" rows="4" id="text7"></textarea>
-											<label class="mdl-textfield__label" for="text7">Details de payement</label>
+											<textarea class="mdl-textfield__input" rows="4" id="details"></textarea>
+											<label class="mdl-textfield__label" for="text7">Details de paiement</label>
 										</div>
-									</div>
-									<div class="col-lg-12 p-t-20 text-center">
-										<button type="button"
-											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Submit</button>
-										<button type="button"
+									</div> </br>
+									<div class="col-lg-12 p-t-10 text-left">
+										<button type="submit"  name="Valider"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success"><b>Payer</b></button>
+										<button type="submit" name="Cancel"
 											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default">Cancel</button>
 									</div>
 								</div>
@@ -313,9 +316,7 @@
 				</div>
 			</div>
 			<!-- end page content -->
-			<!-- start chat sidebar -->
 
-			<!-- end chat sidebar -->
 		</div>
 		<!-- end page container -->
 		<!-- start footer -->

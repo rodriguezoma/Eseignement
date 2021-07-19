@@ -1,5 +1,63 @@
+
+<?php
+require_once('../connexion.php');
+
+	?>
+<?php
+if(isset($_POST["Valider"])){
+
+if( isset($_POST["Nom"] ) and isset($_POST["Prenom"]) and isset($_POST["Genre"]) and isset($_POST["Datenaiss"]) and
+isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"]) and isset($_POST["Numero"]) and isset($_POST["Nomparent"]) and isset($_POST["Numeroparent"]) ){
+
+									 $nom = $_POST["Nom"];
+									$prenom = $_POST["Prenom"];
+									 $genre = $_POST["Genre"];
+									 $datenaiss = $_POST["Datenaiss"];
+									$cnib = $_POST["CNIB"];
+									$datevalid = $_POST["Datevalid"];
+									$email = $_POST["Email"];
+									$numero = $_POST["Numero"];
+									$nomparent = $_POST["Nomparent"];
+									$numeroparent = $_POST["Numeroparent"];
+
+//var_dump( $nom,$prenom,$genre,$datenaiss,$cnib,$datevalid,$email,$numero,$nomparent,$numeroparent);
+
+
+	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS,Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+
+   $req=$req->execute([$_GET["id_Class"], $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
+//    if ($req==True){
+//        $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
+//        $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
+//        $lastIde = $connexion->query("SELECT NOM_ETABLISS,NOW() as dates FROM `etablissement` ORDER BY NOM_ETABLISS ")->fetch();
+//        $lastIdc = $connexion->query("SELECT NOM_CLASS,NOW() as dates FROM `classe`")->fetch();
+//        //       var_dump($lastId,$_GET["id_Class"]);
+// //       die();
+// 		$req1 = $connexion->prepare("INSERT INTO postulation(ID_eleve,ID_CLASS,Nom,Prenom,Genre,Ville,Etablissement,Classe,CNIB,JOUR_POST) VALUES (?,?,?,?,?,?,?,?,?,?)");
+// 		$req1=$req1->execute([$lastId["ID_eleve"],$_GET["id_Class"],$nom,$prenom,$genre,$lastIdv["NOM_VILLE"],$lastIde["NOM_ETABLISS"],$lastIdc["NOM_CLASS"],$cnib,$lastId["dates"]]);
+
+//    }
+
+	}
+
+    		//echo "Valider";
+}
+
+
+		if (isset($_POST["Cancel"])) {
+		    exit(header('Location: ../enseignement/index.php'));
+
+	# code...
+}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <!-- BEGIN HEAD -->
 
 
@@ -16,11 +74,8 @@
 	<link href="fonts/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
 	<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	<link href="fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
-	<!-- bootstrap -->
+	<!--bootstrap -->
 	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<!-- data tables -->
-	<link href="../assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet"
-		type="text/css" />
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="../assets/plugins/material/material.min.css">
 	<link rel="stylesheet" href="../assets/css/material_style.css">
@@ -30,6 +85,10 @@
 	<link href="../assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
+	<!-- dropzone -->
+	<link href="../assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
+	<!-- Date Time item CSS -->
+	<link rel="stylesheet" href="../assets/plugins/flatpicker/css/flatpickr.min.css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
 </head>
@@ -38,12 +97,13 @@
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
+		
 		<!-- start header -->
 		<div class="page-header navbar navbar-fixed-top">
 			<div class="page-header-inner ">
 				<!-- logo start -->
 				<div class="page-logo">
-					<a href="index.html">
+					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
 						<span class="logo-default">FasoEnseignement</span> </a>
 				</div>
@@ -51,16 +111,7 @@
 				<ul class="nav navbar-nav navbar-left in">
 					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
 				</ul>
-				<form class="search-form-opened" action="#" method="GET">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Recherche..." name="query">
-						<span class="input-group-btn">
-							<a href="javascript:;" class="btn submit">
-								<i class="icon-magnifier"></i>
-							</a>
-						</span>
-					</div>
-				</form>
+				
 				<!-- start mobile menu -->
 				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
 					<span></span>
@@ -88,57 +139,63 @@
                             </ul>
                         </li>
 						<!-- end language menu -->
+						
 
 						<li class="dropdown dropdown-quick-sidebar-toggler">
-					
+							<!--<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
+								data-upgraded=",MaterialButton">
+								<i class="material-icons">more_vert</i>
+							</a>-->
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<!-- end header -->
-	
+
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
-					<div id="remove-scroll" class="left-sidemenu">
-						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
-							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-							<li class="sidebar-toggler-wrapper hide">
-								<div class="sidebar-toggler">
-									<span></span>
-								</div>
-							</li>
+			<!--**************************************-->
+            <div class="sidebar-container">
+                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
+                    <div id="remove-scroll" class="left-sidemenu">
+                        <ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
+                            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+
+
+
+                            <!-- About  Students Fees   -->
+
+
+                            <li class="nav-item active open">
+
+                                <ul class="sub-menu">
+
+                                </ul>
+                            </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link nav-toggle"> <i class="material-icons">monetization_on</i>
-                                    <span class="title">Scolarité</span> <span class="arrow"></span>
-                                </a>
+ 
                                 <ul class="sub-menu">
                                     <li class="nav-item">
-                                        <a href="fees_collection.php" class="nav-link "> <span class="title">Etat de paiement</span>
-                                        </a>
+                                        
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="add_fees.php" class="nav-link "> <span class="title">Paiement de la scolarité </span>
-                                        </a>
-                                    </li>
-                                
-                                    <li class="nav-item">
-                                        <a href="fees_receipt.php" class="nav-link "> <span class="title">Reçu de paiement</span>
-                                        </a>
-                                    </li>
-								</ul>
-							</li>
+                                   
+                        </ul>
+                    </li>
 
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+			<!-- end sidebar menu -->
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -146,55 +203,97 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Etat de paiement</div>
+								<div class="page-title"> Welcome! </div>
 							</div>
-							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="index.html">Accueil</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="#">Scolarité</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="#">Etat de la scolarité</a>&nbsp;
-								</li>
-							</ol>
+
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
-							<div class="card card-box">
+						<div class="col-sm-12">
+							<div class="card-box">
 								<div class="card-head">
-									<!--<header>Etat de la Scolarité </header>-->
 
 								</div>
-								<div class="card-body ">
-									<div class="table-scrollable">
-										<table
-											class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-											id="example3">
-											<thead>
-												<tr>
-													<th class="center">N</th>
-													<th class="center"> Nom de l'élève </th>
-													<th class="center"> Classe </th>
-													<th class="center"> Montant Payé </th>
-													<th class="center"> Montant  restant </th>
-													<th class="center"> Status </th>
 
-												</tr>
-											</thead>
-											<tbody>
-												
-												
+								<!-- ************************** ajoute d'eleve ********************************************************************************************-->
+                                <form method="post" action="">
+								<div class="card-body row">
 
-											</tbody>
-										</table>
+									<!-- start widget -->
+						<div class="state-overview">
+						<div class="row">								
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<div class="col-xl-3 col-md-6 col-12">
+							<a href="sign_up.html">
+								<div class="info-box bg-success">
+									<span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<div class="info-box-content">
+										<span class="info-box-text">Elèves</span>
+										<span class="info-box-number">450</span>
+
 									</div>
+									<!-- /.info-box-content -->
 								</div>
+								</a>
+								<!-- /.info-box -->
+							</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<div class="col-xl-3 col-md-6 col-12">
+							<a href="sign_up_Etablissement.html">
+								<div class="info-box bg-blue">
+									<span class="info-box-icon push-bottom"><i class="material-icons">school</i></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<div class="info-box-content">
+										<span class="info-box-text">Etablissement</span>  
+										<span class="info-box-number">52</span>
+
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+								</a>
+								<!-- /.info-box -->
+							</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<!-- /.col -->
+							<div class="col-xl-3 col-md-6 col-12">
+							<a href="FasoEseignement.html">
+								<div class="info-box bg-orange">
+									<span class="info-box-icon push-bottom"><i
+											class="material-icons">local_library</i></span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<div class="info-box-content">
+										<span class="info-box-text">About FasoEnseignement</span>
+										<span class="info-box-number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+									</div>
+									<!-- /.info-box-content -->
+								</div>
+									</a>
+								<!-- /.info-box -->
 							</div>
+							<!-- /.col -->
+						</div>
+					</div>
+					<!-- end widget -->
+
+								
+                                </form>
+                            </div>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+			
+
+
+			
+			
+
+
+
 			<!-- end page content -->
 			<!-- start chat sidebar -->
 			<div class="chat-sidebar-container" data-close-on-body-click="false">
@@ -214,7 +313,7 @@
 						</li>
 					</ul>
 					<div class="tab-content">
-					
+
 						<!-- Start Setting Panel -->
 						<div class="tab-pane chat-sidebar-settings" role="tabpanel" id="quick_sidebar_tab_3">
 							<div class="chat-sidebar-settings-list slimscroll-style">
@@ -270,18 +369,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="setting-item">
-											<div class="setting-text">Show Online</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-7">
-														<input type="checkbox" id="switch-7" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
+
 										<div class="setting-item">
 											<div class="setting-text">Status</div>
 											<div class="setting-set">
@@ -356,12 +444,68 @@
 			</div>
 			<!-- end chat sidebar -->
 		</div>
+		<div class="page-container">
+
+
+		<div class="row">
+
+
+
+		<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="row1 clearfix top-report">
+								<div class="col-12-1">
+									<div class="card">
+										<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+											<!-- Indicators -->
+											<ol class="carousel-indicators">
+												<li data-bs-target="#carousel-example-generic" data-slide-to="0"
+													class="active"></li>
+												<li data-bs-target="#carousel-example-generic" data-slide-to="1"
+													class="">
+												</li>
+												<li data-bs-target="#carousel-example-generic" data-slide-to="2"
+													class="">
+												</li>
+											</ol>
+											<!-- Wrapper for slides -->
+											<div class="carousel-inner owl-carousel" role="listbox" id="owl-demo">
+												<div class="item active"> <img src="../assets/img/slider/slider1.jpg"
+														alt=""> </div>
+												<div class="item"> <img src="../assets/img/slider/slider2.jpg" alt="">
+												</div>
+												<div class="item"> <img src="../assets/img/slider/slider3.jpg" alt="">
+												</div>
+											</div>
+											<!-- Controls -->
+											<a class="left carousel-control" href="#carousel-example-generic"
+												role="button" data-slide="prev"> <span
+													class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+											</a> <a class="right carousel-control" href="#carousel-example-generic"
+												role="button" data-slide="next">
+												<span class="glyphicon glyphicon-chevron-right"
+													aria-hidden="true"></span> <span class="sr-only">Next</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+			<!-- end chat sidebar -->
+		</div>
+		<!-- end page container -->
+
+
+
+
 		<!-- end page container -->
 		<!-- start footer -->
 		<div class="page-footer">
-            <div class="page-footer-inner"> 2021 &copy; ZOMA W Rodrigue
-                <a href="wrodriguezoma@gmail.com" target="_top" class="makerCss">Disign</a>
-            </div>
+			<div class="page-footer-inner"> 2021 &copy; ZOMA W Rodrigue
+				<a href="wrodriguezoma@gmail.com" target="_top" class="makerCss">Disign</a>
+			</div>
 			<div class="scroll-to-top">
 				<i class="icon-arrow-up"></i>
 			</div>
@@ -375,20 +519,20 @@
 	<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 	<!-- bootstrap -->
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<!-- data tables -->
-	<script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="../assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
-	<script src="../assets/js/pages/table/table_data.js"></script>
 	<!-- Common js-->
 	<script src="../assets/js/app.js"></script>
 	<script src="../assets/js/layout.js"></script>
 	<script src="../assets/js/theme-color.js"></script>
 	<!-- Material -->
 	<script src="../assets/plugins/material/material.min.js"></script>
+	<script src="../assets/js/pages/material-select/getmdl-select.js"></script>
+	<script src="../assets/plugins/flatpicker/js/flatpicker.min.js"></script>
+	<script src="../assets/js/pages/date-time/date-time.init.js"></script>
+	<!-- dropzone -->
+	<script src="../assets/plugins/dropzone/dropzone.js"></script>
+	<script src="../assets/plugins/dropzone/dropzone-call.js"></script>
 	<!-- end js include path -->
 </body>
 
 
-<!-- Mirrored from radixtouch.in/templates/admin/smart/source/light/fees_collection.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Mar 2021 09:54:24 GMT -->
 </html>

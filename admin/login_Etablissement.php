@@ -83,7 +83,7 @@ if(isset($_POST["identifiant"]) && isset($_POST["Password"]) ){
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">
-						<input class="input100" type="password" name="Password" placeholder="mot de passe">
+						<input class="input100" type="password" name="Password" placeholder="Mot de passe">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 					<div class="contact100-form-checkbox">

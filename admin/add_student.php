@@ -30,20 +30,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS, Nom, Prenom, Date_de_naissance, genre, CNIB, Date_validite, email, telephone, Parent, Phone, JOUR_POST) 
 	VALUES ('$id_class' , '$nom', '$prenom', '$datenaiss', '$genre', '$cnib', '$datevalid', '$email', '$numero', '$nomparent', '$numeroparent',NOW())");
 	$req->execute();
-    // var_dump(
-	// 	$nom.' && '.
-	// 	$prenom.' && '.
-	// 	 $genre .' && '.
-	// 	 $datenaiss.' && '.
-	// 	$cnib.' && '.
-	// 	$datevalid.' && '.
-	// 	$email.' && '.
-	// 	$numero.' && '.
-	// 	$nomparent.' && '.
-	// 	$numeroparent.' && '.
-	// 	//Recuperer ID 
-	// 	$id_class
-	// );
+
 	//$req1 =$req->execute([$id_class , $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent,NOW()]);
 
 	// var_dump($req1);
@@ -273,12 +260,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 								<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-<!--											<input " type="text" id="Genre" value=""-->
-<!--												readonly tabIndex="-1" required >-->
-<!--											<label for="Genre" ">-->
-<!--												<i ">keyboard_arrow_down</i>-->
-<!--											</label>-->
-<!--											<label for="Genre" ">Genre</label>-->
+
 											<select class="mdl-textfield__input class="pull-right margin-0 class="mdl-icon-toggle__label material-icons class="mdl-textfield__label data-mdl-for="Genre" name="Genre" >
                                                 <option class="mdl-menu__item"  disabled selected>Genre</option>
                                                 <option class="mdl-menu__item" value="M">Male</option>
@@ -357,7 +339,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 									</div>
 									<div class="col-lg-12 p-t-20 text-center">
 										<button type="submit" name="Valider"
-											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink"> Valider </button>
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success"><b> Valider </b></button>
 										<button type="submit" name="Cancel"
 											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default" href="../enseignement/index.php"> Cancel </button>
 									</div>

@@ -1,64 +1,12 @@
-
 <?php
 require_once('../connexion.php');
-
-	?>
-<?php
-if(isset($_POST["Valider"])){
-
-if( isset($_POST["Nom"] ) and isset($_POST["Prenom"]) and isset($_POST["Genre"]) and isset($_POST["Datenaiss"]) and
-isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"]) and isset($_POST["Numero"]) and isset($_POST["Nomparent"]) and isset($_POST["Numeroparent"]) ){
-
-									 $nom = $_POST["Nom"];
-									$prenom = $_POST["Prenom"];
-									 $genre = $_POST["Genre"];
-									 $datenaiss = $_POST["Datenaiss"];
-									$cnib = $_POST["CNIB"];
-									$datevalid = $_POST["Datevalid"];
-									$email = $_POST["Email"];
-									$numero = $_POST["Numero"];
-									$nomparent = $_POST["Nomparent"];
-									$numeroparent = $_POST["Numeroparent"];
-
-//var_dump( $nom,$prenom,$genre,$datenaiss,$cnib,$datevalid,$email,$numero,$nomparent,$numeroparent);
-
-
-	$req = $connexion->prepare("INSERT INTO postulation(ID_CLASS,Nom, Prenom, Date_de_naissance, genre, CNIB,Date_validite,email, telephone, Parent, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-
-   $req=$req->execute([$_GET["id_Class"], $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent]);
-//    if ($req==True){
-//        $lastId = $connexion->query("SELECT ID_eleve,NOW() as dates FROM `eleve` ORDER BY ID_eleve DESC LIMIT 1 ")->fetch();
-//        $lastIdv = $connexion->query("SELECT NOM_VILLE,NOW() as dates FROM `Ville` ORDER BY NOM_VILLE DESC LIMIT 1")->fetch();
-//        $lastIde = $connexion->query("SELECT NOM_ETABLISS,NOW() as dates FROM `etablissement` ORDER BY NOM_ETABLISS ")->fetch();
-//        $lastIdc = $connexion->query("SELECT NOM_CLASS,NOW() as dates FROM `classe`")->fetch();
-//        //       var_dump($lastId,$_GET["id_Class"]);
-// //       die();
-// 		$req1 = $connexion->prepare("INSERT INTO postulation(ID_eleve,ID_CLASS,Nom,Prenom,Genre,Ville,Etablissement,Classe,CNIB,JOUR_POST) VALUES (?,?,?,?,?,?,?,?,?,?)");
-// 		$req1=$req1->execute([$lastId["ID_eleve"],$_GET["id_Class"],$nom,$prenom,$genre,$lastIdv["NOM_VILLE"],$lastIde["NOM_ETABLISS"],$lastIdc["NOM_CLASS"],$cnib,$lastId["dates"]]);
-
-//    }
-
-	}
-
-    		//echo "Valider";
-}
-
-
-		if (isset($_POST["Cancel"])) {
-		    exit(header('Location: ../enseignement/index.php'));
-
-	# code...
-}
-
 
 ?>
 
 
 
-
 <!DOCTYPE html>
-<html lang="en" >
-<!-- BEGIN HEAD -->
+<html lang="en">
 
 
 <head>
@@ -76,28 +24,31 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	<link href="fonts/material-design-icons/material-icon.css" rel="stylesheet" type="text/css" />
 	<!--bootstrap -->
 	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/plugins/summernote/summernote.css" rel="stylesheet">
+	<!-- morris chart -->
+	<link href="../assets/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="../assets/plugins/material/material.min.css">
 	<link rel="stylesheet" href="../assets/css/material_style.css">
+	<!-- inbox style -->
+	<link href="../assets/css/pages/inbox.min.css" rel="stylesheet" type="text/css" />
 	<!-- Theme Styles -->
 	<link href="../assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
-	<link href="../assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
-	<!-- dropzone -->
-	<link href="../assets/plugins/dropzone/dropzone.css" rel="stylesheet" media="screen">
-	<!-- Date Time item CSS -->
-	<link rel="stylesheet" href="../assets/plugins/flatpicker/css/flatpickr.min.css" />
+	<!-- Owl Carousel Assets -->
+	<link href="../assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="../assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
 	<!-- favicon -->
-	<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
+	<link rel="shortcut icon" href="https://radixtouch.com/templates/admin/smart/source/assets/img/favicon.ico" />
 </head>
-<!-- END HEAD -->
 
 <body
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
-		
+		<!-- start header -->
 		<!-- start header -->
 		<div class="page-header navbar navbar-fixed-top">
 			<div class="page-header-inner ">
@@ -142,10 +93,6 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 						
 
 						<li class="dropdown dropdown-quick-sidebar-toggler">
-							<!--<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-								data-upgraded=",MaterialButton">
-								<i class="material-icons">more_vert</i>
-							</a>-->
 						</li>
 					</ul>
 				</div>
@@ -156,76 +103,44 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<!--**************************************-->
-            <div class="sidebar-container">
-                <div class="sidemenu-container navbar-collapse collapse fixed-menu">
-                    <div id="remove-scroll" class="left-sidemenu">
-                        <ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
-                            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-                            <li class="sidebar-toggler-wrapper hide">
-                                <div class="sidebar-toggler">
-                                    <span></span>
-                                </div>
-                            </li>
+			
 
+			<!-- <div class="page-container"> -->
+			<!-- start sidebar menu -->
 
-
-                            <!-- About  Students Fees   -->
-
-
-                            <li class="nav-item active open">
-
-                                <ul class="sub-menu">
-
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
- 
-                                <ul class="sub-menu">
-                                    <li class="nav-item">
-                                        
-                                    </li>
-                                   
-                        </ul>
-                    </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-			<!-- end sidebar menu -->
-			<!-- end sidebar menu -->
-			<!-- start page content -->
-			<div class="page-content-wrapper">
+			<!-- <div class="page-content-wrapper">
 				<div class="page-content">
 					<div class="page-bar">
-						<div class="page-title-breadcrumb">
-							<div class=" pull-left">
-								<div class="page-title"> Welcome! </div>
-							</div>
+						<div class="page-title-breadcrumb"> -->
 
-						</div>
+
+						<!-- </div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="card-box">
+							<div class="card-box">-->
 								<div class="card-head">
 
-								</div>
+								</div> 
 
-								<!-- ************************** ajoute d'eleve ********************************************************************************************-->
-                                <form method="post" action="">
+			<!-- ************************** Principal bouton de Home      ************************************************************-->
+                               
+			
+							<form method="post" action="">
 								<div class="card-body row">
 
 									<!-- start widget -->
-						<div class="state-overview">
-						<div class="row">								
+						<div class="state-overview"><div class=" pull-left">
+								<div class="page-title"> Welcome! </div>
+							</div>	
+						</br>
+						<div class="row">		
+											
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									
 
 							<div class="col-xl-3 col-md-6 col-12">
-							<a href="sign_up.html">
+							<a href="sign_up.php">
 								<div class="info-box bg-success">
 									<span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -241,7 +156,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 							</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 							<div class="col-xl-3 col-md-6 col-12">
-							<a href="sign_up_Etablissement.html">
+							<a href="sign_up_Etablissement.php">
 								<div class="info-box bg-blue">
 									<span class="info-box-icon push-bottom"><i class="material-icons">school</i></span>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -257,7 +172,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 							</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<!-- /.col -->
 							<div class="col-xl-3 col-md-6 col-12">
-							<a href="FasoEseignement.html">
+							<a href="FasoEseignement.php">
 								<div class="info-box bg-orange">
 									<span class="info-box-icon push-bottom"><i
 											class="material-icons">local_library</i></span>
@@ -283,175 +198,12 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 						</div>
 					</div>
 				</div>
-			</div>
 
+ <!-- ***********************      Slide des images   ***************************************************** -->
 
-			
-
-
-			
-			
-
-
-
-			<!-- end page content -->
-			<!-- start chat sidebar -->
-			<div class="chat-sidebar-container" data-close-on-body-click="false">
-				<div class="chat-sidebar">
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i
-									class="material-icons">chat</i>Chat
-								<span class="badge badge-danger">4</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i
-									class="material-icons">settings</i>
-								Settings
-							</a>
-						</li>
-					</ul>
-					<div class="tab-content">
-
-						<!-- Start Setting Panel -->
-						<div class="tab-pane chat-sidebar-settings" role="tabpanel" id="quick_sidebar_tab_3">
-							<div class="chat-sidebar-settings-list slimscroll-style">
-								<div class="chat-header">
-									<h5 class="list-heading">Layout Settings</h5>
-								</div>
-								<div class="chatpane inner-content ">
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Sidebar Position</div>
-											<div class="setting-set">
-												<select
-													class="sidebar-pos-option form-control input-inline input-sm input-small ">
-													<option value="left" selected="selected">Left</option>
-													<option value="right">Right</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Header</div>
-											<div class="setting-set">
-												<select
-													class="page-header-option form-control input-inline input-sm input-small ">
-													<option value="fixed" selected="selected">Fixed</option>
-													<option value="default">Default</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Footer</div>
-											<div class="setting-set">
-												<select
-													class="page-footer-option form-control input-inline input-sm input-small ">
-													<option value="fixed">Fixed</option>
-													<option value="default" selected="selected">Default</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">Account Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Notifications</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-1">
-														<input type="checkbox" id="switch-1" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-
-										<div class="setting-item">
-											<div class="setting-text">Status</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-2">
-														<input type="checkbox" id="switch-2" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">2 Steps Verification</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-3">
-														<input type="checkbox" id="switch-3" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">General Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Location</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-4">
-														<input type="checkbox" id="switch-4" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Save Histry</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-5">
-														<input type="checkbox" id="switch-5" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Auto Updates</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-6">
-														<input type="checkbox" id="switch-6" class="mdl-switch__input"
-															checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end chat sidebar -->
-		</div>
-		<div class="page-container">
-
-
-		<div class="row">
-
-
-
-		<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+				<div class="row">
+						
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
 							<div class="row1 clearfix top-report">
 								<div class="col-12-1">
 									<div class="card">
@@ -492,11 +244,11 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 							</div>
 						</div>
 					</div>
-					
-			<!-- end chat sidebar -->
-		</div>
-		<!-- end page container -->
+			</div>
+	</div>
 
+
+ <!-- ***********************   End   Slide des images   ***************************************************** -->
 
 
 
@@ -504,7 +256,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 		<!-- start footer -->
 		<div class="page-footer">
 			<div class="page-footer-inner"> 2021 &copy; ZOMA W Rodrigue
-				<a href="wrodriguezoma@gmail.com" target="_top" class="makerCss">Disign</a>
+			<a href="wrodriguezoma@gmail.com" target="_top" class="makerCss">Design</a>
 			</div>
 			<div class="scroll-to-top">
 				<i class="icon-arrow-up"></i>
@@ -512,26 +264,29 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 		</div>
 		<!-- end footer -->
 	</div>
-	<!-- start js include path -->
 	<script src="../assets/plugins/jquery/jquery.min.js"></script>
 	<script src="../assets/plugins/popper/popper.js"></script>
+	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
 	<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<!-- bootstrap -->
-	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+	<script src="../assets/plugins/moment/moment.min.js"></script>
+	<script src="../assets/plugins/counterup/jquery.waypoints.min.js"></script>
+	<script src="../assets/plugins/counterup/jquery.counterup.min.js"></script>
+	<!-- owl carousel -->
+	<script src="../assets/plugins/owl-carousel/owl.carousel.js"></script>
+	<script src="../assets/js/pages/owl-carousel/owl_data.js"></script>
 	<!-- Common js-->
 	<script src="../assets/js/app.js"></script>
 	<script src="../assets/js/layout.js"></script>
 	<script src="../assets/js/theme-color.js"></script>
 	<!-- Material -->
 	<script src="../assets/plugins/material/material.min.js"></script>
-	<script src="../assets/js/pages/material-select/getmdl-select.js"></script>
-	<script src="../assets/plugins/flatpicker/js/flatpicker.min.js"></script>
-	<script src="../assets/js/pages/date-time/date-time.init.js"></script>
-	<!-- dropzone -->
-	<script src="../assets/plugins/dropzone/dropzone.js"></script>
-	<script src="../assets/plugins/dropzone/dropzone-call.js"></script>
-	<!-- end js include path -->
+	<script src="../assets/plugins/sparkline/jquery.sparkline.js"></script>
+	<script src="../assets/js/pages/sparkline/sparkline-data.js"></script>
+	<!-- summernote -->
+	<script src="../assets/plugins/summernote/summernote.js"></script>
+	<script src="../assets/js/pages/summernote/summernote-data.js"></script>
 </body>
 
 

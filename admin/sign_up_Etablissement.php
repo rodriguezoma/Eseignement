@@ -30,7 +30,8 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 	
 	$req1= $req->execute([$identifiant,$email,$phone,$cnib,$password]);
 	
-	var_dump($req1);
+	
+	
 	}else {
 	$Password1 =  ("Desoler, mot de passe non identique!");
 }
@@ -124,7 +125,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 						
 						<div class="col-lg-6 p-t-20">
 							<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">
-								<input class="input100" type="password" name="pass" placeholder="mot de passe">
+								<input class="input100" type="password" name="pass" placeholder="Mot de passe">
 								<span class="focus-input100" data-placeholder="&#xf191;"></span>
 							</div>
 						</div>

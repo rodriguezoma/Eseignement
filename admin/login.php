@@ -17,7 +17,7 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 
 	if($count>=1){
 	echo ("okay");
-	header('Location: ../enseignement/index.php');
+	header('Location:index.php');
 
 	}else{
 
@@ -80,11 +80,11 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 						</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Entre email">
-						<input class="input100" type="text" name="email" placeholder="email">
+						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">
-						<input class="input100" type="password" name="Password" placeholder="mot de passe">
+						<input class="input100" type="password" name="Password" placeholder="Mot de passe">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 					<div class="contact100-form-checkbox">
