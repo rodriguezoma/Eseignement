@@ -159,16 +159,16 @@ $classe = $_POST['Classe'];
 											<span class="selected"></span>
 										</a>
 									</li>
-									<li class="nav-item">
+									<!-- <li class="nav-item">
 										<a href="add_student.php" class="nav-link "> <span class="title">Ajoute élève</span>
 										</a>
 									</li>
 
-									</li>-->
+									</li>
 									<li class="nav-item">
 										<a href="edit_student.html" class="nav-link "> <span class="title">Editer</span>
 										</a>
-									</li>
+									</li> -->
 
 								</ul>
 							</li>
@@ -222,7 +222,7 @@ $classe = $_POST['Classe'];
 														<div class="row">
 															<div class="col-md-6 col-sm-6 col-6">
 																<div class="btn-group">
-																	<a href="add_professor.html" id="addRow"
+																	<a href="ville.php" id="addRow"
 																		class="btn btn-info">
 																		Ajouter élèves  <i class="fa fa-plus"></i>
 																	</a>
@@ -267,6 +267,7 @@ $classe = $_POST['Classe'];
 																		<th> Ville </th>
 																		<th> Etablissement </th>
 																		<th>Classe</th>
+																		<th>Action</th>
 																	</tr>
 																</thead>
 																<tbody>
@@ -284,6 +285,20 @@ $classe = $_POST['Classe'];
 																<td ><?php echo htmlspecialchars ($row['NOM_VILLE']);?></td>
 																<td ><?php echo htmlspecialchars ($row['NOM_ETABLISS']);?></td>
 																<td ><?php echo htmlspecialchars ($row['NOM_CLASS']);?></td>
+																<td>
+
+																<div class="btn-group" role="group" aria-label="Button group">
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																<button class="btn btn-primary btn-xs" data-toogle="modal" data-target="#">
+																	<i class="fa fa-pencil"></i>
+																</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		
+																<button class="btn btn-danger btn-xs" data-toogle="modal" data-target="#">
+																	<i class="fa fa-trash-o "></i>
+																</button>
+
+																</div>
+																</td>
 																</tr>
 															<?php endwhile;?>
 																</tbody>
