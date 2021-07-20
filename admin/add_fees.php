@@ -8,7 +8,8 @@ if(isset($_POST["Valider"])){
 var_dump($_POST['Valider']);
 	//isset($_POST["nom"] ) and isset($_POST["classe"]) and
 
-if(isset($_POST["transe"]) and isset($_POST["moyen"]) and isset($_POST["montant"] ) and isset($_POST["numero"]) and isset($_POST["reference"]) and isset($_POST["details"]) ){
+if(isset($_POST["transe"]) and isset($_POST["moyen"]) and isset($_POST["montant"] )
+ and isset($_POST["numero"]) and isset($_POST["reference"]) and isset($_POST["details"]) ){
 	
 
 									 $nom = $_GET["nom"];
@@ -21,8 +22,6 @@ if(isset($_POST["transe"]) and isset($_POST["moyen"]) and isset($_POST["montant"
 									//Recuperer ID 
 									$class = $_GET["class"];
 									//Requete de la classe
-
-
 
 
 	var_dump(
