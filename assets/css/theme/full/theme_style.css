@@ -599,7 +599,7 @@ body {
   -webkit-transform: rotate(330deg) !important;
   -moz-transform: rotate(330deg) !important;
   -ms-transform: rotate(330deg) !important;
-  /*-o-transform: rotate(330eg) !important;*/
+  -o-transform: rotate(330eg) !important;
   transform: rotate(330deg) !important;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {
@@ -1324,7 +1324,7 @@ body {
   float: left;
 }
 .page-header.navbar .page-logo .logo-default {
-  margin: 7px;
+  margin: 7px 0 0;
   height: 34px;
 }
 .page-header.navbar .page-logo .logo-mini {
@@ -1489,9 +1489,9 @@ form.search-form-opened .btn.submit {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/*.page-header.navbar .menu-toggler:focuse {
+.page-header.navbar .menu-toggler:focuse {
   background: none;
-}*/
+}
 /* .page-header.navbar .menu-toggler.sidebar-toggler {
     float: right;
     margin: 15.5px 0 0

@@ -106,7 +106,7 @@ if( isset($_POST["username"] ) && isset($_POST["email"]) && isset($_POST["pass"]
 										}
 									?>
 
-						</div>
+								</div>
 						</div>
 						<div class="col-lg-6 p-t-20">
 							<div class="wrap-input100 validate-input" data-validate="Entre mot de passe">

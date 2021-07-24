@@ -141,11 +141,11 @@ require_once('../connexion.php');
 
 							<div class="col-xl-3 col-md-6 col-12">
 							<span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
-							<a href="sign_up.php">
+							<a href="ville.php">
 								<div class="info-box bg-success">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="info-box-content">
-										<span class="mdl-button__ripple-containert">Depot de dossiers</span>
+										<span class="mdl-button__ripple-containert"><b>Effectuer un depot de dossiers</b></span>
 										<!-- <span class="info-box-number">450</span> -->
 
 									</div>
@@ -156,12 +156,12 @@ require_once('../connexion.php');
 							</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 							<div class="col-xl-3 col-md-6 col-12">
-							<span class="info-box-icon push-bottom"><i class="material-icons">class</i></span>
-							<a href="sign_up_Etablissement.php">
+								<span class="info-box-icon push-bottom"><i class="material-icons">class</i></span>
+								<a href="add_fees.php">
 								<div class="info-box bg-blue">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="info-box-content">
-										<span class="mdl-button__ripple-containert">Effectuer une Inscription</span>  
+										<span class="mdl-button__ripple-containert"><b>Effectuer une Inscription</b></span>  
 										<!-- <span class="info-box-number">52</span> -->
 
 									</div>
@@ -177,8 +177,8 @@ require_once('../connexion.php');
 								<div class="info-box bg-orange">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="info-box-content">
-										<span class="mdl-button__ripple-containert">About FasoEnseignement</span>
-										<span class="info-box-number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+										<span class="mdl-button__ripple-containert"><b>About FasoEnseignement</></span>
+										
 
 									</div>
 									<!-- /.info-box-content -->
@@ -220,11 +220,11 @@ require_once('../connexion.php');
 											</ol>
 											<!-- Wrapper for slides -->
 											<div class="carousel-inner owl-carousel" role="listbox" id="owl-demo">
-												<div class="item active"> <img src="../assets/img/slider/slider1.jpg"
+												<div class="item active"> <img src="../assets/img/slider/etabliss1.jpg"
 														alt=""> </div>
-												<div class="item"> <img src="../assets/img/slider/slider2.jpg" alt="">
-												</div>
 												<div class="item"> <img src="../assets/img/slider/slider3.jpg" alt="">
+												</div>
+												<div class="item"> <img src="../assets/img/slider/owl6.jpg" alt="">
 												</div>
 											</div>
 											<!-- Controls -->

@@ -133,7 +133,7 @@ h6 {
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
-  color: #aaa1af;
+  color: #fff;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -558,7 +558,7 @@ li [class^="icon-"].icon-large {
 *******************************************************************************************/
 
 body {
-  background-color: #eeeef5;
+  background-color: #eef1f5;
   padding: 0 !important;
   margin: 0 !important;
   font-family: Poppins, sans-serif;
@@ -599,7 +599,7 @@ body {
   -webkit-transform: rotate(330deg) !important;
   -moz-transform: rotate(330deg) !important;
   -ms-transform: rotate(330deg) !important;
-  -o-transform: rotate(330deg) !important;
+  -o-transform: rotate(330eg) !important;
   transform: rotate(330deg) !important;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {

@@ -16,7 +16,6 @@ if(isset($_POST["email"]) && isset($_POST["Password"]) ){
 		$count = $select->rowCount();
 
 	if($count>=1){
-	echo ("okay");
 	header('Location:index.php');
 
 	}else{

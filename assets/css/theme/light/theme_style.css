@@ -600,7 +600,7 @@ body {
   -webkit-transform: rotate(330deg) !important;
   -moz-transform: rotate(330deg) !important;
   -ms-transform: rotate(330deg) !important;
-  -o-transform: rotate(330deg) !important;
+  -o-transform: rotate(330eg) !important;
   transform: rotate(330deg) !important;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {
@@ -1325,7 +1325,6 @@ body {
 .page-header.navbar .page-logo .logo-default {
   margin: 7px 0 0;
   height: 34px;
-
 }
 .page-header.navbar .page-logo .logo-mini {
   display: none;
@@ -1338,7 +1337,7 @@ body {
 .page-logo a {
   text-decoration: none;
   color: #fff;
-  font-size: 12px;
+  font-size: 25px;
 }
 .navbar-nav > li > a,
 .navbar-nav > li > a.sidebar-toggler,
@@ -6445,8 +6444,7 @@ ul.activity-list .activity-desk h5 a {
 						
 *****************************************************************/
 
-.
-table-scrollable {
+.table-scrollable {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;

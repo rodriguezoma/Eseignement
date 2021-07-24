@@ -31,6 +31,9 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	VALUES ('$id_class' , '$nom', '$prenom', '$datenaiss', '$genre', '$cnib', '$datevalid', '$email', '$numero', '$nomparent', '$numeroparent',NOW())");
 	$req->execute();
 
+
+
+	
 	//$req1 =$req->execute([$id_class , $nom, $prenom, $datenaiss, $genre, $cnib, $datevalid, $email, $numero, $nomparent, $numeroparent,NOW()]);
 
 	// var_dump($req1);
@@ -88,6 +91,8 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="../assets/plugins/material/material.min.css">
 	<link rel="stylesheet" href="../assets/css/material_style.css">
+	<!-- Jquery Toast css -->
+	<link rel="stylesheet" href="../assets/plugins/jquery-toast/dist/jquery.toast.min.css">
 	<!-- Theme Styles -->
 	<link href="../assets/css/theme/light/theme_style.css" rel="stylesheet" id="rt_style_components" type="text/css" />
 	<link href="../assets/css/theme/light/style.css" rel="stylesheet" type="text/css" />
@@ -100,6 +105,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	<link rel="stylesheet" href="../assets/plugins/flatpicker/css/flatpickr.min.css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="http://radixtouch.in/templates/admin/smart/source/assets/img/favicon.ico" />
+
 </head>
 <!-- END HEAD -->
 
@@ -234,6 +240,48 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 									<header>Les Information Basic</header>
 
 								</div>
+								
+									<!-- ********************************     ******************************** -->
+									
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>More Options</header>
+								</div>
+								<div class="card-body ">
+									<div class="row clearfix jsdemo-notification-button">
+										<div class="col-sm-12 col-md-4 col-lg-3">
+											<button class="tstSimple btn btn-info">Simple</button>
+										</div>
+										<div class="col-sm-12 col-md-4 col-lg-3">
+											<button class="tstArray btn btn-info">Text Array</button>
+										</div>
+										<div class="col-sm-12 col-md-4 col-lg-3">
+											<button class="tstHtml btn btn-info">Html Text</button>
+										</div>
+										<div class="col-sm-12 col-md-4 col-lg-3">
+											<button class="tstSticky btn btn-info">Sticky</button>
+										</div>
+										<!-- <div class="col-lg-12 p-t-20 text-center">
+											<button type="submit"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success tstSuccess btn btn-success" ><b> Valider </b></button>
+										
+											<button type="submit"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default tstWarning btn btn-warning"> Cancel </button>
+									</div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 p-t-20 text-center">
+											<button type="submit"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success tstSuccess btn btn-success" ><b> Valider </b></button>
+										
+											<button type="submit"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default tstWarning btn btn-warning"> Cancel </button>
+									</div>
 
 								<!-- ************************** ajoute d'eleve ********************************************************************************************-->
                                 <form method="post" action="">
@@ -337,13 +385,18 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 											<div id="id_dropzone" class="dropzone"></div>
 										</div>
 									</div>
+<!-- *************************      button Valide et Cancel ****************************************** -->
+
+
 									<div class="col-lg-12 p-t-20 text-center">
-										<button type="submit" name="Valider"
-											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success"><b> Valider </b></button>
-										<button type="submit" name="Cancel"
-											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default" href="../enseignement/index.php"> Cancel </button>
+											<button type="submit" name="Valider"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-success tstSuccess btn btn-success"><b> Valider </b></button>
+										
+											<button type="submit" name="Cancel"
+											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default " href="../enseignement/index.php"> Cancel </button>
 									</div>
 								</div>
+												
                                 </form>
                             </div>
 						</div>
@@ -519,6 +572,10 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 	<!-- bootstrap -->
 	<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+		<!-- notifications -->
+	<script src="../assets/plugins/jquery-toast/dist/jquery.toast.min.js"></script>
+	<script src="../assets/plugins/jquery-toast/dist/toast.js"></script>
 	<!-- Common js-->
 	<script src="../assets/js/app.js"></script>
 	<script src="../assets/js/layout.js"></script>
@@ -532,6 +589,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 	<script src="../assets/plugins/dropzone/dropzone.js"></script>
 	<script src="../assets/plugins/dropzone/dropzone-call.js"></script>
 	<!-- end js include path -->
+
 </body>
 
 
