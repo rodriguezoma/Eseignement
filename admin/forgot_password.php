@@ -10,17 +10,17 @@ if(isset($_POST["phonecnib"]) && isset($_POST["Password"]) ){
 	$password = $_POST["Password"];
 
 
-	$select = $connexion->prepare("SELECT Numero, Password FROM user_etabliss WHERE Numero=? AND  Password=?");
-	$select->execute([$phonecnib, md5($password)]);
+	$select = $connexion->prepare("SELECT Numero FROM user_etabliss WHERE Numero=?");
+	$select->execute([$phonecnib]);
 			$fet = $select->fetch();
 		$count = $select->rowCount();
 
 	if($count>=1){
-	header('Location: ../enseignement/index.php');
+		$num = $connexion->prepare("SELECT Password FROM user_etabliss WHERE Numero=?");
 
 	}else{
 
-		$conect= ("Desolez, les informations sont incorrect!");
+		$conect= ("Desolez, ce numero n'est pas lie a un compte!");
 
 }
 	}
@@ -62,7 +62,7 @@ if(isset($_POST["phonecnib"]) && isset($_POST["Password"]) ){
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-logo">
-						<img alt="" src="../assets/img/logo-2.png">
+						<img alt="" src="../assets/img/faso-education.png">
 					</span>
 					<!-- <span class="login100-form-title  p-t-27">
 						Forgot Your Password?
