@@ -78,7 +78,7 @@ $classe = $_POST['Classe'];
 				<div class="page-logo">
 					<a href="index.html">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEnseignement</span> </a>
+						<span class="logo-default">FasoEducation</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -246,7 +246,7 @@ $classe = $_POST['Classe'];
 														<table
 																class="table table-striped table-bordered table-hover
 																table-checkable order-column valign-middle"
-																id="example1">
+																id="example3">
 																<thead>
 																	<tr>
 																									
@@ -260,6 +260,38 @@ $classe = $_POST['Classe'];
 																	</tr>
 																</thead>
 																<tbody>
+
+																<?php
+							$req1= "SELECT Nom, Prenom, genre, NOM_VILLE, NOM_ETABLISS, NOM_CLASS FROM postulation , ville , etablissement , classe  where postulation.ID_CLASS = classe.ID_CLASS AND classe.ID_ETABLISS = etablissement.ID_ETABLISS AND etablissement.ID_VILLE = ville.ID_VILLE ";
+							$reqstet=$connexion->query($req1);
+						
+															
+															?>
+															<?php while( $row = $reqstet->fetch()): ?>	
+																<tr>
+																<td ><?php echo htmlspecialchars($row['Nom']); ?></td>
+																<td ><?php echo htmlspecialchars ($row['Prenom']);?></td>
+																<td ><?php echo htmlspecialchars ($row['genre']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_VILLE']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_ETABLISS']);?></td>
+																<td ><?php echo htmlspecialchars ($row['NOM_CLASS']);?></td>
+																<td>
+
+																<div class="btn-group" role="group" aria-label="Button group">
+																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																<button class="btn btn-primary btn-xs" data-toogle="modal" data-target="#">
+																	<i class="fa fa-pencil"></i>
+																</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																		
+																<button class="btn btn-danger btn-xs" data-toogle="modal" data-target="#">
+																	<i class="fa fa-trash-o "></i>
+																</button>
+
+																</div>
+																</td>
+																</tr>
+															<?php endwhile;?>
+</tbody>
 														
 															
 															</table>

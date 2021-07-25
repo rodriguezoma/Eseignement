@@ -10,13 +10,13 @@ if(isset($_POST["identifiant"]) && isset($_POST["Password"]) ){
 	$password = $_POST["Password"];
 
 
-	$select = $connexion->prepare("SELECT Identifiant, Password FROM user_etabliss WHERE Identifiant=?  AND  Password=?");
+	$select = $connexion->prepare("SELECT Identifiant, Passwords FROM user_etabliss WHERE Identifiant=?  AND  Passwords=?");
 	$select->execute([$identifiant, md5($password)]);
 			$fet = $select->fetch();
 		$count = $select->rowCount();
-
-	if($count>=1){
-	header('Location: ../enseignement/all_students.php');
+		
+	if($count==1){
+	header('Location: ./all_students.php');
 
 	}else{
 

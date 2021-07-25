@@ -56,7 +56,7 @@ require_once('../connexion.php');
 				<div class="page-logo">
 					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEnseignement</span> </a>
+						<span class="logo-default">FasoEducation</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -218,14 +218,19 @@ require_once('../connexion.php');
 												<li data-bs-target="#carousel-example-generic" data-slide-to="2"
 													class="">
 												</li>
+												<li data-bs-target="#carousel-example-generic" data-slide-to="3"
+													class="">
+												</li>
 											</ol>
 											<!-- Wrapper for slides -->
 											<div class="carousel-inner owl-carousel" role="listbox" id="owl-demo">
-												<div class="item active"> <img src="../assets/img/slider/slider1.jpg"
+												<div class="item active"> <img src="../assets/img/slider/img2.jpg"
 														alt=""> </div>
-												<div class="item"> <img src="../assets/img/slider/slider2.jpg" alt="">
+												<div class="item"> <img src="../assets/img/slider/images (06).jpg" alt="">
 												</div>
-												<div class="item"> <img src="../assets/img/slider/slider3.jpg" alt="">
+												<div class="item"> <img src="../assets/img/slider/unnamed (11).jpg" alt="">
+												</div>
+												<div class="item"> <img src="../assets/img/slider/images (01).jpg" alt="">
 												</div>
 											</div>
 											<!-- Controls -->
