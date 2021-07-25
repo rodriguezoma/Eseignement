@@ -220,11 +220,11 @@ require_once('../connexion.php');
 											</ol>
 											<!-- Wrapper for slides -->
 											<div class="carousel-inner owl-carousel" role="listbox" id="owl-demo">
-												<div class="item active"> <img src="../assets/img/slider/etabliss1.jpg"
+												<div class="item active"> <img src="../assets/img/slider/images4).jpg"
 														alt=""> </div>
-												<div class="item"> <img src="../assets/img/slider/slider3.jpg" alt="">
+												<div class="item"> <img src="../assets/img/slider/phpNPlWv3.jpg" alt="">
 												</div>
-												<div class="item"> <img src="../assets/img/slider/owl6.jpg" alt="">
+												<div class="item"> <img src="../assets/img/slider/imge4.jpg" alt="">
 												</div>
 											</div>
 											<!-- Controls -->
