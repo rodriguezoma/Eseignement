@@ -58,7 +58,7 @@ if(isset($_POST["phonecnib"]) && isset($_POST["Password"]) ){
 
 <body>
 	<div class="limiter">
-		<div class="container-login100 page-background">
+		<div class="container-login100 page">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-logo">

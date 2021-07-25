@@ -72,7 +72,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 
 <body>
 	<div class="limiter">
-		<div class="container-login100 page-background">
+		<div class="container-login100 page">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form"  method = "POST"  action = "">
 					<span class="login100-form-logo">

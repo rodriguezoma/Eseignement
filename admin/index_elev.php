@@ -56,7 +56,7 @@ require_once('../connexion.php');
 				<div class="page-logo">
 					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEnseignement</span> </a>
+						<span class="logo-default">FasoEducation</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -145,7 +145,7 @@ require_once('../connexion.php');
 								<div class="info-box bg-success">
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="info-box-content">
-										<span class="mdl-button__ripple-containert"><b>Effectuer un depot de dossiers</b></span>
+										<span class="mdl-button__ripple-containert"><b>Effectuer un depot</b></span>
 										<!-- <span class="info-box-number">450</span> -->
 
 									</div>

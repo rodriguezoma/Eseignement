@@ -117,7 +117,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 				<div class="page-logo">
 					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEnseignement</span> </a>
+						<span class="logo-default">FasoEducation</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -154,10 +154,6 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 						
 
 						<li class="dropdown dropdown-quick-sidebar-toggler">
-							<!--<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-								data-upgraded=",MaterialButton">
-								<i class="material-icons">more_vert</i>
-							</a>-->
 						</li>
 					</ul>
 				</div>
@@ -198,7 +194,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item">
-                                        <a href="fees_collection.php" class="nav-link "> <span class="title">Postulation</span>
+                                        <a href="#" class="nav-link "> <span class="title">Postulation</span>
                                         </a>
                                     </li>
                                    

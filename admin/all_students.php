@@ -260,37 +260,7 @@ $classe = $_POST['Classe'];
 																	</tr>
 																</thead>
 																<tbody>
-															<?php
-							$req1= "SELECT Nom, Prenom, genre, NOM_VILLE, NOM_ETABLISS, NOM_CLASS FROM postulation , ville , etablissement , classe 
-							 where postulation.ID_CLASS = classe.ID_CLASS AND classe.ID_ETABLISS = etablissement.ID_ETABLISS AND etablissement.ID_VILLE = ville.ID_VILLE ";
-							$reqstet=$connexion->query($req1);
 														
-															?>
-															<?php while( $row = $reqstet->fetch()): ?>	
-																<tr>
-																<td ><?php echo htmlspecialchars($row['Nom']); ?></td>
-																<td ><?php echo htmlspecialchars ($row['Prenom']);?></td>
-																<td ><?php echo htmlspecialchars ($row['genre']);?></td>
-																<td ><?php echo htmlspecialchars ($row['NOM_VILLE']);?></td>
-																<td ><?php echo htmlspecialchars ($row['NOM_ETABLISS']);?></td>
-																<td ><?php echo htmlspecialchars ($row['NOM_CLASS']);?></td>
-																<td>
-
-																<div class="btn-group" role="group" aria-label="Button group">
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																<button class="btn btn-primary btn-xs" data-toogle="modal" data-target="#">
-																	<i class="fa fa-pencil"></i>
-																</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-																		
-																<button class="btn btn-danger btn-xs" data-toogle="modal" data-target="#">
-																	<i class="fa fa-trash-o "></i>
-																</button>
-
-																</div>
-																</td>
-																</tr>
-															<?php endwhile;?>
-																</tbody>
 															
 															</table>
 														</div>

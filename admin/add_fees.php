@@ -24,20 +24,20 @@ if(isset($_POST["transe"]) and isset($_POST["moyen"]) and isset($_POST["montant"
 									//Requete de la classe
 
 
-	var_dump(
+// 	var_dump(
 
-		$nom,
-		$transe,
-		$moyen,
-	   $montant,
-	   $referense,
-	   $details,
-	   $numero,
-	   //Recuperer ID 
-	   $class
-	   //Requete de la classe
+// 		$nom,
+// 		$transe,
+// 		$moyen,
+// 	   $montant,
+// 	   $referense,
+// 	   $details,
+// 	   $numero,
+// 	   //Recuperer ID 
+// 	   $class
+// 	   //Requete de la classe
 
-);
+// );
 	$req1 = $connexion->prepare("INSERT INTO paiement(Nom_eleve, Classe, Transe, Moyen, Montant, Numero, Code, Statusp, Details, Datep) 
 	VALUES ('Adam', '5eme' , '$trase', '$moyen', '$montant', '$numero' '$reference', '$details',NOW())");
 	$req1->execute();
@@ -106,7 +106,7 @@ var_dump($req1);
 				<div class="page-logo">
 					<a href="index.php">
 					<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEnseignement</span> </a>
+						<span class="logo-default">FasoEducation</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -191,10 +191,10 @@ var_dump($req1);
                                         </a>
                                     </li>
                          
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="fees_receipt.php" class="nav-link "> <span class="title">Reçu de paiement</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 

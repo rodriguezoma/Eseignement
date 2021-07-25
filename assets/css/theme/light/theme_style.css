@@ -1323,8 +1323,8 @@ body {
   float: left;
 }
 .page-header.navbar .page-logo .logo-default {
-  margin: 7px 0 0;
-  height: 34px;
+  margin: 2px 0 0;
+  height: 5px;
 }
 .page-header.navbar .page-logo .logo-mini {
   display: none;

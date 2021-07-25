@@ -16,7 +16,7 @@ if(isset($_POST["identifiant"]) && isset($_POST["Password"]) ){
 		$count = $select->rowCount();
 
 	if($count>=1){
-	header('Location: ../enseignement/index.php');
+	header('Location: ../enseignement/all_students.php');
 
 	}else{
 
@@ -58,7 +58,7 @@ if(isset($_POST["identifiant"]) && isset($_POST["Password"]) ){
 
 <body>
 	<div class="limiter">
-		<div class="container-login100 page-background"  >
+		<div class="container-login100 page"  >
 								
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="">
