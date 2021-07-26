@@ -117,7 +117,7 @@ isset($_POST["CNIB"] ) and isset($_POST["Datevalid"]) and isset($_POST["Email"])
 				<div class="page-logo">
 					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEducation</span> </a>
+						<span class="logo-default">Education</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">

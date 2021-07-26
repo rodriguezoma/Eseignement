@@ -30,7 +30,7 @@ if( isset($_POST["identifiant"] ) && isset($_POST["email"]) && isset($_POST["pho
 	
 	$req1= $req->execute([$identifiant,$email,$phone,$cnib,$password]);
 	
-	
+	header('Location: login_Etablissement.php' );
 	
 	}else {
 	$Password1 =  ("Desoler, mot de passe non identique!");

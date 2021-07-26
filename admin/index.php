@@ -56,7 +56,7 @@ require_once('../connexion.php');
 				<div class="page-logo">
 					<a href="index.php">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
-						<span class="logo-default">FasoEducation</span> </a>
+						<span class="logo-default">Education</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
@@ -102,23 +102,7 @@ require_once('../connexion.php');
 
 		<!-- start page container -->
 		<div class="page-container">
-			<!-- start sidebar menu -->
-			
-
-			<!-- <div class="page-container"> -->
-			<!-- start sidebar menu -->
-
-			<!-- <div class="page-content-wrapper">
-				<div class="page-content">
-					<div class="page-bar">
-						<div class="page-title-breadcrumb"> -->
-
-
-						<!-- </div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="card-box">-->
+	
 								<div class="card-head">
 
 								</div> 
